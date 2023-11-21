@@ -1,0 +1,1 @@
+Invoke-Expression "g++ main.cpp permis.cpp -o permis.exe"
