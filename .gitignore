@@ -1,0 +1,14 @@
+# VSCode folder
+./vscode
+# Codeblocks folders and files
+obj/
+bin/
+Debug
+*.cbp
+*.depend
+*.layout
+# Objects or executable
+*.o
+*.exe
+# Compressed files
+*.zip
