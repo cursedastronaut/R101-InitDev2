@@ -29,20 +29,21 @@ Créez un nouveau projet incluant les 3 fichiers : permis.h, permis.cpp et main.
 	c.  Ajoutez une méthode  `decrementePoints`  qui diminue le nombre de points du permis de 1. Si le permis a déjà MINP points, la méthode lance une exception  `invalid_argument`  précisant la raison de l'exception. Testez.
 4.
 	a.  En utilisant une des méthodes définies précédemment, ajoutez dans les fichiers  `permis.h`  et  `permis.cpp`  une fonction  **externe**  (à la classe  `Permis`)  `ajoutePoints`  de prototype :  
-	    
+	    ```cpp
 	    void ajoutePoints(Permis&, int);  
-	    
+	    ```
 	    avec deux arguments : un permis et un entier positif. Cette fonction ajoute les points passés en deuxième argument au permis passé en premier argument, en ne dépassant jamais MAXP (si trop de points sont ajoutés, on reste sur MAXP points). Testez.
 	b.  Que se passe-t-il si on modifie le prototype de la fonction membre  `ajoutePoints`  :  
-	    
+	    ```cpp
 	    void ajoutePoints(const Permis&, int);
-
+		```
 5.
 	a.  Modifiez les fichiers  `permis.h`  et  `permis.cpp`  pour ajouter à la classe  `Permis`  le destructeur suivant :  
-	    
+	    ```cpp
 	    Permis::~Permis() {  
 	      cout << "Destruction du Permis" << endl;  
 	    }
+		```
 	    
 	b.  Ajoutez l'affichage des données membres dans la définition du destructeur. Compilez. Expliquez les affichages à l'exécution : quand le destructeur est-il appelé ? Dans quel ordre les objets sont-il détruits ?
 6. Un constructeur doit s'assurer que l'objet est bien formé. Modifiez le constructeur non vide pour déclencher une exception type `invalid_argument` si le nombre de points donné est aberrant. Traitez l'exception dans `main.cpp`.  
