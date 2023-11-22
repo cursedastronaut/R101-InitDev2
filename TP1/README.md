@@ -49,10 +49,10 @@ Créez un nouveau projet incluant les 3 fichiers : permis.h, permis.cpp et main.
 Grâce à l'encapsulation, les permis auront dorénavant toujours un nombre de points valide : les constructeurs ne créent que des permis valides, les méthodes publiques préservent cette propriété, et l'utilisateur n'a pas accès à l'attribut `_nbpoints` et ne peut donc pas y mettre une valeur aberrante.
 
 7. Testez l'instruction suivante dans le programme principal :
-```cpp
-	if (p1 == p2) cout << "c'est pareil" << endl;
-```
-Que se passe-t-il ? Pourquoi ?
+	```cpp
+		if (p1 == p2) cout << "c'est pareil" << endl;
+	```
+	Que se passe-t-il ? Pourquoi ?
 
 8. Ajoutez une fonction membre (= une méthode) `compare` pour comparer deux permis : la fonction renvoie `true` si les deux permis ont le même nombre de points. Testez.
 9.  Déclarez un vecteur de Permis de taille 10. Observez la construction et la destruction des instances créées. Affichez le contenu du vecteur.
