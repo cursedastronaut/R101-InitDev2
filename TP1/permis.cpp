@@ -1,3 +1,4 @@
+//	GALAAD MARTINEAUX	BUT1 - TP1K
 #include <string>
 #include <iostream>
 #include <stdexcept>

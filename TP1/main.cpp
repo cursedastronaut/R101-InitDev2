@@ -1,3 +1,4 @@
+//	GALAAD MARTINEAUX	BUT1 - TP1K
 #include <string>
 #include <iostream>
 #include <vector>
@@ -111,6 +112,7 @@ int main() {
 }
 
 /*
+GALAAD MARTINEAUX	BUT1 - TP1K
 1.	a.	Que contient le fichier permis.h ?
 						Une classe "Permis" permettant de gérer les points d'un permis de conduire.
 		b.	Que contient le fichier permis.cpp ? À quoi sert la présence de Permis:: ? Retirez Permis:: de la définition de la fonction membre affiche. Que se passe-t-il ?
