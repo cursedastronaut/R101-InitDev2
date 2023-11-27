@@ -151,6 +151,7 @@ Piece Appartement::retraitPiece(size_t indice) {
 	if (pieces.size() != 1) 
 		pieces[indice] = pieces[pieces.size()-1];
 	pieces.pop_back();
+	return temp;
 }
 
 uint32_t Appartement::nbPieces() {
