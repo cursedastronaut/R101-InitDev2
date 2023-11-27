@@ -5,7 +5,8 @@
 #include <cmath>
 #include <vector>
 using namespace std;
-
+#define ZONE_PRIX (vector<uint32_t>){2500, 3100, 3500, 4150, 4500}
+static const vector<uint32_t> test = {2500, 3100, 3500, 4150, 4500};
 
 struct uint2 {
 	uint32_t longueur;
@@ -43,7 +44,7 @@ class Appartement {
 		//Constructeur vide
 		Appartement();
 		//Constructeur qui construit un appartement avec une seule pièce passée en paramètre, et une adresse passée en paramètre.
-		Appartement(Piece &piece, string adresse);
+		Appartement(Piece &piece, string adresse, uint8_t zone = 0);
 		//Affiche les différentes pièces d'un appartement.
 		void afficher();
 		//Ajoute une pièce passée en paramètres.
@@ -57,13 +58,21 @@ class Appartement {
 		//Renvoie -1 si l'appartement cible a une surface plus petite.
 		//Renvoie  0 si l'appartement cible a une surface égale.
 		//Renvoie  1 si l'appartement cible a une surface plus grande.
-		int8_t compare(Appartement& autre);
+		int8_t compare(Appartement &autre);
 		//Renvoie l'indice de la pièce de plus grande surface (-1 si aucune Piece dans l'appartement).
 		int plusGrandePiece();
+		//Renvoie la valeur estimée de l'appartement
+		uint32_t valeur();
+		//Renvoie -1 si l'appartement cible a un prix plus petit que celui passé en paramètre.
+		//Renvoie  0 si l'appartement cible a un prix égal que celui passé en paramètre.
+		//Renvoie  1 si l'appartement cible a un prix plus grand que celui passé en paramètre.
+		int8_t comparePrix(Appartement &autre);
 
 	private:
 		//Adresse de l'appartement, pas de norme particulière
 		string adresse;
 		//Toutes les pièces d'un appartement.
 		vector<Piece> pieces;
+		//Zone d'un appartement
+		uint8_t _zone;
 };

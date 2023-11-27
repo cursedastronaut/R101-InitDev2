@@ -126,9 +126,10 @@ Appartement::Appartement() {
 	adresse = "1 rue Joliot-Curie 91400 Orsay";
 }
 
-Appartement::Appartement(Piece &piece, string adresseFournie) {
+Appartement::Appartement(Piece &piece, string adresseFournie, uint8_t zone) {
 	adresse = adresseFournie;
 	pieces.push_back(piece);
+	_zone = zone;
 }
 
 void Appartement::afficher() {
@@ -164,7 +165,7 @@ uint32_t Appartement::surface() {
 }
 
 int8_t Appartement::compare(Appartement& autre) {
-	//Permets de ne pas rappeler les fonctions à chaque tests.
+	//Permet de ne pas rappeler les fonctions à chaque test.
 	uint32_t maSurface = surface(), autreSurface = autre.surface();
 
 	if (maSurface < autreSurface)
@@ -186,4 +187,19 @@ int Appartement::plusGrandePiece() {
 	}
 
 	return (int)plusGrandeSurface;
+}
+
+uint32_t Appartement::valeur() {
+	return surface() * ZONE_PRIX[_zone];
+}
+
+int8_t Appartement::comparePrix(Appartement &autre) {
+	//Permet de ne pas rappeler les fonctions à chaque test.
+	uint32_t maValeur = valeur(), autreValeur = autre.valeur();
+	if (maValeur < autreValeur)
+		return -1;
+	else if (maValeur == autreValeur)
+		return 0;
+	else //if (maValeur > autreValeur), ça n'a pas d'intérêt de refaire le test.
+		return 1;
 }
