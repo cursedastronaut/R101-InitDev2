@@ -10,5 +10,7 @@ Debug
 # Objects or executable
 *.o
 *.exe
+permis
+appartement
 # Compressed files
 *.zip
