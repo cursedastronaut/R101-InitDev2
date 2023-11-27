@@ -64,6 +64,9 @@ int main() {
 	----------------
 	*/
 
+	apparts[1].valeur();
+	apparts[1].comparePrix(apparts[2]);
+
 
 	return 0;
 }
