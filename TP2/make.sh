@@ -6,5 +6,5 @@ if [[ $* == *-run* ]]; then
     if [ $? -ne 0 ]; then
         exit
     fi
-    ./permis
+    ./appartement
 fi
