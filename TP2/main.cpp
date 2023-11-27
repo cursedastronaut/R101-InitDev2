@@ -39,7 +39,30 @@ int main() {
 	----------------
 	*/
 
-	
+	vector<Appartement> apparts;
+	//Test du constructeur vide.
+	apparts.push_back(Appartement());
+	//Test du constructeur plein
+	apparts.push_back(Appartement(pieces[1], "1 rue des reves 91400 Orsay"));
+	//Test du constructeur plein avec une zone précisée
+	apparts.push_back(Appartement(pieces[1], "1 rue d'Andromede 91400 Orsay", 1));
+
+	for (size_t i = 0; i < apparts.size(); ++i) {
+		apparts[i].afficher();
+	}
+
+	apparts[1].ajoutPiece(pieces[2]);
+	apparts[1].retraitPiece(1);
+	apparts[1].nbPieces();
+	apparts[1].surface();
+	apparts[1].compare(apparts[0]);
+	apparts[1].plusGrandePiece();
+
+	/*
+	----------------
+		PARTIE 3
+	----------------
+	*/
 
 
 	return 0;
