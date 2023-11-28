@@ -128,7 +128,11 @@ int main() {
 	else
 		cout << "Test de Appartement::valeur() rate" << endl;
 	
-	if (apparts[1].comparePrix(apparts[2]) == 1)
+	if (	
+			apparts[1].comparePrix(apparts[2]) == 1
+			&& apparts[2].comparePrix(apparts[1]) == -1
+			&& apparts[0].comparePrix(apparts[0]) == 0
+		)
 		cout << "Test de Appartement::comparePrix() reussi" << endl;
 	else
 		cout << "Test de Appartement::comparePrix() rate" << endl;
