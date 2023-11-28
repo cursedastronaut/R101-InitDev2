@@ -26,22 +26,23 @@ int main() {
 
 	pieces[2].saisir();
 
-	//Test des affichages
+	//Test des Piece::affichages
 	for (size_t i = 0; i < pieces.size(); ++i)
 		pieces[i].afficher();
 
-	//Test de la surface (interne, puis externe)
+	//Test de la Piece::surface interne
 	if (pieces[1].surface() == 156)
 		cout << "Test de surface interne reussi." << endl;
 	else
 		cout << "Test de surface interne rate." << endl;
 
+	//Test de surface externe
 	if (surface(pieces[1]) == 156)
 		cout << "Test de surface externe reussi." << endl;
 	else
 		cout << "Test de surface externe rate." << endl;
 
-	//Test de plusGrande
+	//Test de Piece::plusGrande
 	if (pieces[1].plusGrande(pieces[0]))
 		cout << "Test de plusGrande passe" << endl;
 	else
@@ -65,20 +66,20 @@ int main() {
 		apparts[i].afficher();
 	}
 
-	//Test de nbPiece
+	//Test de Appartement::nbPiece
 	bool nbPieceOK = (apparts[1].nbPieces() == 1 && apparts[0].nbPieces() == 0);
 	//On evite de faire des tests qui dépendent de nbPieces.
 	if (nbPieceOK) {
 		cout << "Test de nbPieces passe" << endl;
 
-		//Test de ajoutPiece
+		//Test de Appartement::ajoutPiece
 		apparts[1].ajoutPiece(pieces[1]);
 		if (apparts[1].nbPieces() == 2)
 			cout << "Test de ajoutPiece passe" << endl;
 		else
 			cout << "Test de ajoutPiece rate" << endl;
 
-		//Test de retraitPiece
+		//Test de Appartement::retraitPiece
 		apparts[1].retraitPiece(1);
 		if (apparts[1].nbPieces() == 1)
 			cout << "Test de retraitPiece passe" << endl;
