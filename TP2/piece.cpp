@@ -1,3 +1,4 @@
+//Galaad MARTINEAUX - BUT1 TP1K
 #include "piece.h"
 //Transforme une chaine de caractère en int strictement positif.
 int toInt(const char* index) {
