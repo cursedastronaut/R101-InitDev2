@@ -1,3 +1,4 @@
+//Galaad MARTINEAUX - BUT1 TP1K
 #pragma once
 #include "piece.h"
 using namespace std;
