@@ -85,7 +85,7 @@ void Piece::saisir() {
 		temp << " de la piece." << endl;
 
 		while (!(cin >> input) || ( i < 2 && toInt(input.c_str()) == -1)) {
-			cout << "Saisie invalide, veuillez recommencer." << input << endl;
+			cout << "Saisie invalide, veuillez recommencer." << endl;
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(),'\n');
 		}
