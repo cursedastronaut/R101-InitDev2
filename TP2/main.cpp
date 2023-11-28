@@ -10,13 +10,19 @@ int main() {
 		PARTIE 1
 	----------------
 	*/
-
-	//Test du constructeur vide
-	pieces.push_back(Piece());
-	//Test du constructeur incorrectement utilisé
-	pieces.push_back(Piece(13, 12, "SALON"));
-	//Test de la fonction saisir
-	pieces.push_back(Piece());
+	try {
+		//Test du constructeur vide
+		pieces.push_back(Piece());
+		//Test du constructeur incorrectement utilisé
+		pieces.push_back(Piece(13, 12, "SALON"));
+		//Test de la fonction saisir
+		pieces.push_back(Piece());
+		//Test de l'exception
+		pieces.push_back(Piece(0,-1, "Salle qui de toute façon n'existera pas."));
+	}	catch (invalid_argument e) {
+		cerr << e.what() << endl;
+		cout << "Test des constructeurs, et de l'exception passe" << endl;
+	}
 
 	pieces[2].saisir();
 
@@ -131,3 +137,6 @@ int main() {
 
 	return 0;
 }
+/*
+
+*/
