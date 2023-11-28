@@ -69,20 +69,20 @@ void Piece::saisir() {
 		switch (i)
 		{
 			case 0:
-				temp = "a largeur";
+				temp = "nombre positif representant la largeur";
 				break;
 			
 			case 1:
-				temp = "a longueur";
+				temp = "nombre positif representant la longueur";
 				break;
 			
 			case 2:
-				temp = "e nom";
+				temp = "nom representant le nom";
 				break;
 			default: break;
 		}
 
-		cout << "Veuillez saisir un nombre positif representant l" <<
+		cout << "Veuillez saisir un " <<
 		temp << " de la piece." << endl;
 
 		while (!(cin >> input) || ( i < 2 && toInt(input.c_str()) == -1)) {
