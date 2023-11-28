@@ -24,8 +24,15 @@ int main() {
 		pieces[i].afficher();
 
 	//Test de la surface (interne, puis externe)
-	pieces[1].surface();
-	surface(pieces[1]);
+	if (pieces[1].surface() == 156)
+		cout << "Test de surface interne reussi." << endl;
+	else
+		cout << "Test de surface interne rate." << endl;
+
+	if (surface(pieces[1]) == 156)
+		cout << "Test de surface externe reussi." << endl;
+	else
+		cout << "Test de surface externe rate." << endl;
 
 	//Test de plusGrande
 	if (pieces[1].plusGrande(pieces[0]))
@@ -51,21 +58,74 @@ int main() {
 		apparts[i].afficher();
 	}
 
-	apparts[1].ajoutPiece(pieces[2]);
-	apparts[1].retraitPiece(1);
-	apparts[1].nbPieces();
-	apparts[1].surface();
-	apparts[1].compare(apparts[0]);
-	apparts[1].plusGrandePiece();
+	//Test de nbPiece
+	bool nbPieceOK = (apparts[1].nbPieces() == 1 && apparts[0].nbPieces() == 0);
+	//On evite de faire des tests qui dépendent de nbPieces.
+	if (nbPieceOK) {
+		cout << "Test de nbPieces passe" << endl;
+
+		//Test de ajoutPiece
+		apparts[1].ajoutPiece(pieces[1]);
+		if (apparts[1].nbPieces() == 2)
+			cout << "Test de ajoutPiece passe" << endl;
+		else
+			cout << "Test de ajoutPiece rate" << endl;
+
+		//Test de retraitPiece
+		apparts[1].retraitPiece(1);
+		if (apparts[1].nbPieces() == 1)
+			cout << "Test de retraitPiece passe" << endl;
+		else
+			cout << "Test de retraitPiece rate" << endl;
+
+	} else {
+		cout	<< "Test de nbPieces rate" << endl
+				<< "Tests de Appartement::ajoutPiece()"
+				<< ", Appartement::retraitPiece non fait"
+				<< " puisque dependant de Appartement::nbPiece()."
+				<< endl << endl;
+	}
+
+	//Test de Appartement::surface
+	if (apparts[1].surface() == 156) {
+		apparts[1].ajoutPiece(pieces[1]);
+		if (apparts[1].surface() == 156+156)
+			cout << "Test Appartement::surface() reussi" << endl;
+		else 
+			cout << "Test Appartement::surface() rate" << endl;
+	}
+
+	//Test de Appartement::compare()
+	if (apparts[1].compare(apparts[0]) == -1)
+		cout << "Test de Appartement::compare() reussi" << endl;
+	else
+		cout << "Test de Appartement::compare() rate" << endl;
+
+	//Test de Appartement::plusGrandePiece()
+	Piece temp(900, 800, "Espace imaginaire");
+	apparts[1].ajoutPiece(temp);
+	if (apparts[1].plusGrandePiece() == 2)
+		cout << "Test de Appartement::plusGrandePiece() reussi." << endl;
+	else
+		cout << "Test de Appartement::plusGrandePiece() rate." << endl;
+
 
 	/*
 	----------------
 		PARTIE 3
 	----------------
 	*/
-
-	apparts[1].valeur();
-	apparts[1].comparePrix(apparts[2]);
+	apparts[1].retraitPiece(1);
+	if (apparts[1].valeur() == apparts[1].surface() * ZONE_PRIX[0])
+		cout << "Test de Appartement::valeur() reussi" << endl;
+	else
+		cout << "Test de Appartement::valeur() rate" << endl;
+	
+	if (apparts[1].comparePrix(apparts[2]) == 1)
+		cout << "Test de Appartement::comparePrix() reussi" << endl;
+	else
+		cout << "Test de Appartement::comparePrix() rate" << endl;
+	
 
 
 	return 0;

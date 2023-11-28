@@ -57,7 +57,7 @@ int8_t Appartement::compare(Appartement& autre) {
 	//Permet de ne pas rappeler les fonctions à chaque test.
 	uint32_t maSurface = surface(), autreSurface = autre.surface();
 
-	if (maSurface < autreSurface)
+	if (maSurface > autreSurface)
 		return -1;
 	else if (maSurface == autreSurface)
 		return 0;
