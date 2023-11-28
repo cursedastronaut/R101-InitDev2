@@ -21,7 +21,7 @@ int main() {
 		pieces.push_back(Piece(0,-1, "Salle qui de toute façon n'existera pas."));
 	}	catch (invalid_argument e) {
 		cerr << e.what() << endl;
-		cout << "Test des constructeurs, et de l'exception passe" << endl;
+		cout << "Test des constructeurs de Piece, et de l'exception passe" << endl;
 	}
 
 	pieces[2].saisir();
@@ -32,9 +32,9 @@ int main() {
 
 	//Test de la Piece::surface interne
 	if (pieces[1].surface() == 156)
-		cout << "Test de surface interne reussi." << endl;
+		cout << "Test de Piece::surface interne reussi." << endl;
 	else
-		cout << "Test de surface interne rate." << endl;
+		cout << "Test de Piece::surface interne rate." << endl;
 
 	//Test de surface externe
 	if (surface(pieces[1]) == 156)
@@ -44,9 +44,9 @@ int main() {
 
 	//Test de Piece::plusGrande
 	if (pieces[1].plusGrande(pieces[0]))
-		cout << "Test de plusGrande passe" << endl;
+		cout << "Test de Piece::plusGrande passe" << endl;
 	else
-		cout << "Test de plus grande RATE" << endl;
+		cout << "Test de Piece::plusGrande RATE" << endl;
 	
 	/*
 	----------------
@@ -70,24 +70,24 @@ int main() {
 	bool nbPieceOK = (apparts[1].nbPieces() == 1 && apparts[0].nbPieces() == 0);
 	//On evite de faire des tests qui dépendent de nbPieces.
 	if (nbPieceOK) {
-		cout << "Test de nbPieces passe" << endl;
+		cout << "Test de Appartement::nbPieces passe" << endl;
 
 		//Test de Appartement::ajoutPiece
 		apparts[1].ajoutPiece(pieces[1]);
 		if (apparts[1].nbPieces() == 2)
-			cout << "Test de ajoutPiece passe" << endl;
+			cout << "Test de Appartement::ajoutPiece passe" << endl;
 		else
-			cout << "Test de ajoutPiece rate" << endl;
+			cout << "Test de Appartement::ajoutPiece rate" << endl;
 
 		//Test de Appartement::retraitPiece
 		apparts[1].retraitPiece(1);
 		if (apparts[1].nbPieces() == 1)
-			cout << "Test de retraitPiece passe" << endl;
+			cout << "Test de Appartement::retraitPiece passe" << endl;
 		else
-			cout << "Test de retraitPiece rate" << endl;
+			cout << "Test de Appartement::retraitPiece rate" << endl;
 
 	} else {
-		cout	<< "Test de nbPieces rate" << endl
+		cout	<< "Test de Appartement::nbPieces rate" << endl
 				<< "Tests de Appartement::ajoutPiece()"
 				<< ", Appartement::retraitPiece non fait"
 				<< " puisque dependant de Appartement::nbPiece()."
