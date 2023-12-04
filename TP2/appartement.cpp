@@ -71,7 +71,7 @@ int Appartement::plusGrandePiece() {
 }
 
 uint32_t Appartement::valeur() {
-	return surface() * ZONE_PRIX[_zone];
+	return surface() * test[_zone];
 }
 
 int8_t Appartement::comparePrix(Appartement &autre) {

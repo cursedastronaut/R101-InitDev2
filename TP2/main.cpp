@@ -124,7 +124,7 @@ int main() {
 	----------------
 	*/
 	apparts[1].retraitPiece(1);
-	if (apparts[1].valeur() == apparts[1].surface() * ZONE_PRIX[0])
+	if (apparts[1].valeur() == apparts[1].surface() * test[0])
 		cout << "Test de Appartement::valeur() reussi" << endl;
 	else
 		cout << "Test de Appartement::valeur() rate" << endl;
