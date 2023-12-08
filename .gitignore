@@ -14,5 +14,5 @@ permis
 appartement
 # Compressed files
 *.zip
-#Text files
-*.txt
+#Temporary files
+*.temp
