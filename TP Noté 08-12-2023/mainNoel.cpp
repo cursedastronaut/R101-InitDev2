@@ -17,7 +17,7 @@ int main(){
 	/// --------- appeler les m�thodes �crites, et faire des affichages
 	/// ------- ceci ne sera pas �valu�
 	PereNoel petitPapaNoel;
-	size_t nombreCadeaux = JEUX.size()-1;
+	size_t nombreCadeaux = JEUX.size();
 
 	
 	/// --------------- ins�rer ici les instructions de la question 5
@@ -43,9 +43,11 @@ int main(){
 	// �crire	l'instruction d'amor�age	:
 	// - le pere No�l offre un cadeau au 1er enfant : lesEnfants[0]
 	// - le booleen encoreDesCadeaux est initialis�.
-	if (lesEnfants.size() > 0)
-		petitPapaNoel.offreCadeau(lesEnfants[0]);
-	encoreDesCadeaux = nombreCadeaux > 0;
+	if (lesEnfants.size() > 0)	//S'il y a des enfants à qui offrir des cadeaux
+		if (petitPapaNoel.offreCadeau(lesEnfants[0]))
+			--nombreCadeaux;
+	encoreDesCadeaux = nombreCadeaux > 0 && lesEnfants.size() > 0;	//On continue que s'il y a encore des cadeaux
+																	//et qu'il y a des enfants.
 
 	while (encoreDesCadeaux){	/// tant qu'il a des cadeaux 
 		i++;
@@ -61,12 +63,15 @@ int main(){
 	/// --------------- Question 11 ----------
 	/// trouver l'enfant qui a le plus de cadeaux et afficher ses cadeaux
 	size_t enfantMaxCadeaux = 0;
-	for (size_t i = 0; i < lesEnfants.size(); ++i)
+	for (size_t i = 0; i < lesEnfants.size(); ++i) //sera skip s'il n'y a pas d'enfant
 	{
 		if (lesEnfants[i].combienDeCadeaux() > lesEnfants[enfantMaxCadeaux].combienDeCadeaux())
 			enfantMaxCadeaux = i;
 	}
-	lesEnfants[enfantMaxCadeaux].affiche();
+	if (lesEnfants.size() > 0)
+		lesEnfants[enfantMaxCadeaux].affiche();
+	else
+		cout << "Il n'y a pas d'enfant a qui offrir des cadeaux! Ont-ils tous ete vilains?" << endl;
 	return 0;
 }
 

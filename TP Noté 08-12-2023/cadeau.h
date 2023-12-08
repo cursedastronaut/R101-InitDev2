@@ -15,7 +15,7 @@ class Cadeau {
 			_description=desc;
 		}	
 		string getDesc()const;		// retourne la description
-		bool memeCadeau(Cadeau &cadeau);
+		bool memeCadeau(Cadeau &cadeau);	//Retourne vrai si deux cadeaux ont une description identiques.
 };	 
 
 #endif 

@@ -10,10 +10,10 @@ class Enfant {
    public:
 		Enfant(const string & n="toto");
 		string nom()const;
-      void affiche();
-      void recoitCadeau(Cadeau &);
-		bool possede(Cadeau &);
-      size_t combienDeCadeaux();
+      void affiche(); //Affiche tout les cadeaux de l'Enfant.
+      void recoitCadeau(Cadeau &);  //Ajoute le cadeau passé en paramètre au _sac.
+		bool possede(Cadeau &); //Retourne vrai si le cadeau passé en paramètre est déjà présent dans le _sac.
+      size_t combienDeCadeaux(); //Retourne le nombre de cadeaux reçus par l'enfant.
 };
 
 #endif
