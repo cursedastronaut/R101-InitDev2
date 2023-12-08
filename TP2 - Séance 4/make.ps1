@@ -1,5 +1,5 @@
-Invoke-Expression "g++ main.cpp appartement.cpp piece.cpp -o appartement.exe"
+Invoke-Expression "g++ .\appartement.cpp .\main.cpp .\piece.cpp -o TP3-p3.exe"
 if ($args -contains "-run") {
     if ($LASTEXITCODE -ne 0) { Exit }
-    Invoke-Expression "./appartement.exe"
+    Invoke-Expression "./TP3-p3.exe"
 }
