@@ -113,9 +113,10 @@ int Appartement::recherche(const string& nomExterne) {
 int Appartement::recherchePremier(const string& nomExterne) {
 	int index = recherche(nomExterne);
 
+int debut = 0, fin = index - 1, milieu;
 	// Utiliser la recherche dichotomique pour trouver le premier nomExterne
 	while (index > 0 && _lesPieces[index - 1].nom() == nomExterne) {
-		int debut = 0, fin = index - 1, milieu;
+		debut = 0; fin = index - 1;
 
 		while (debut <= fin) {
 			milieu = (debut + fin) / 2;
