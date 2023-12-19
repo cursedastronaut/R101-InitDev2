@@ -1,4 +1,4 @@
-/// TP5 Tris et Complexité
+/// TP5 Tris et Complexitï¿½
 /// 2022-2023
 /// fichier vecteurTrie.cpp
 
@@ -11,14 +11,14 @@ using namespace std;
 /// Initialisation en fonction des parametres choisis par l'utilisateur
 void VecteurTrie::initVecteur(int nbVal, Ordre ordr, int valMax)
 {
-    /// supprimer les éléments du vecteur utilisé pour le tri précédent
+    /// supprimer les ï¿½lï¿½ments du vecteur utilisï¿½ pour le tri prï¿½cï¿½dent
     _v.clear(); /// ou bien _v.resize(0);
 
-    /// génération d'un vecteur de nvVal entiers compris entre 0 et valMax
+    /// gï¿½nï¿½ration d'un vecteur de nvVal entiers compris entre 0 et valMax
     vecteurAlea(_v, nbVal, 0, valMax);
 
-    /// on le met dans l'ordre souhaité
-    int cptEcritTmp=0, cptCompTmp=0; /// nécessaires pour l'appel des fonctions de tri
+    /// on le met dans l'ordre souhaitï¿½
+    int cptEcritTmp=0, cptCompTmp=0; /// nï¿½cessaires pour l'appel des fonctions de tri
     switch (ordr)
     {
     case ALEA : break;
@@ -34,13 +34,13 @@ void VecteurTrie::afficher()const
     for (int i=0 ; i<_v.size() ; i++)
     {
         cout << _v[i] << " ";
-        /// méthode at() non nécessaire car pas d'accès erroné possible ici
+        /// mï¿½thode at() non nï¿½cessaire car pas d'accï¿½s erronï¿½ possible ici
     }
     cout << endl;
 }
 
 /// Applique l'algorithme de tri choisi par l'utilisateur.
-/// Compte le nombre d'écritures (dans le vecteur) et de comparaisons (entre éléments du vecteur).
+/// Compte le nombre d'ï¿½critures (dans le vecteur) et de comparaisons (entre ï¿½lï¿½ments du vecteur).
 void VecteurTrie::trier(Algo alg, int & cptEcrit, int & cptComp)
 {
     switch (alg)
@@ -72,7 +72,7 @@ void VecteurTrie::echanger(int ind1, int ind2, int & cptEcrit)
     int tmp = _v.at(ind1);
     _v.at(ind1) = _v.at(ind2);
     _v.at(ind2) = tmp ;
-    /// 1 échange compte pour 2 écritures (on compte les écritures sur le vecteur)
+    /// 1 ï¿½change compte pour 2 ï¿½critures (on compte les ï¿½critures sur le vecteur)
     cptEcrit+=2;
 }
 
@@ -108,7 +108,7 @@ void VecteurTrie::triSelectionInverse(int & cptEcrit, int & cptComp)
     }
 }
 
-///Recherche l'indice de l'élément minimum entre indDebut et indFin.
+///Recherche l'indice de l'ï¿½lï¿½ment minimum entre indDebut et indFin.
 int VecteurTrie::selection(int indDebut, int indFin, int & cptEcrit, int & cptComp)
 {
     int indDuMin = indDebut;
@@ -123,7 +123,7 @@ int VecteurTrie::selection(int indDebut, int indFin, int & cptEcrit, int & cptCo
     return(indDuMin);
 }
 
-///Recherche l'indice de l'élément maximum entre indDebut et indFin
+///Recherche l'indice de l'ï¿½lï¿½ment maximum entre indDebut et indFin
 int VecteurTrie::selectionMax(int indDebut, int indFin, int & cptEcrit, int & cptComp)
 {
     int indDuMax = indDebut;
@@ -140,16 +140,16 @@ int VecteurTrie::selectionMax(int indDebut, int indFin, int & cptEcrit, int & cp
 
 /****** TRI RAPIDE ******/
 
-/// Exécution du tri rapide
+/// Exï¿½cution du tri rapide
 void VecteurTrie::triRapide(int & cptEcrit, int & cptComp)
 {
     triRapideAux(0, _v.size()-1, cptEcrit, cptComp);
 }
 
-/// Partitionne le vecteur et appelle récursivement la procédure triRapideAux sur la partie gauche et la partie droite du vecteur.
+/// Partitionne le vecteur et appelle rï¿½cursivement la procï¿½dure triRapideAux sur la partie gauche et la partie droite du vecteur.
 void VecteurTrie::triRapideAux(int debut, int fin, int & cptEcrit, int & cptComp)
 {
-    if (debut<fin) /// cas d'arrêt pour la récursivité
+    if (debut<fin) /// cas d'arrï¿½t pour la rï¿½cursivitï¿½
     {
         int pivot = partitionner(debut, fin, cptEcrit, cptComp); /// division du tableau
         triRapideAux(debut, pivot-1, cptEcrit, cptComp); /// trie partie 1
@@ -157,7 +157,7 @@ void VecteurTrie::triRapideAux(int debut, int fin, int & cptEcrit, int & cptComp
     }
 }
 
-/// Partitionnement du vecteur (éléments inférieurs à un pivot à sa gauche et éléments supérieurs à sa droite).
+/// Partitionnement du vecteur (ï¿½lï¿½ments infï¿½rieurs ï¿½ un pivot ï¿½ sa gauche et ï¿½lï¿½ments supï¿½rieurs ï¿½ sa droite).
 /// Retourne l'indice du pivot.
 int VecteurTrie::partitionner(int debut, int fin, int & cptEcrit,int & cptComp)
 {
@@ -168,28 +168,49 @@ int VecteurTrie::partitionner(int debut, int fin, int & cptEcrit,int & cptComp)
     for (i=debut+1; i<=fin; i++)
     {
         cptComp++;
-        if (_v.at(i) < pivot) /// si élément inférieur au pivot
+        if (_v.at(i) < pivot) /// si ï¿½lï¿½ment infï¿½rieur au pivot
         {
-            compteur++; /// incrémente compteur cad la place finale du pivot
-            echanger(compteur, i, cptEcrit); /// élément positionné
+            compteur++; /// incrï¿½mente compteur cad la place finale du pivot
+            echanger(compteur, i, cptEcrit); /// ï¿½lï¿½ment positionnï¿½
         }
     }
-    echanger(compteur, debut, cptEcrit); /// le pivot est placé
-    return compteur; /// et sa position est retournée
+    echanger(compteur, debut, cptEcrit); /// le pivot est placï¿½
+    return compteur; /// et sa position est retournï¿½e
 }
 
-/****** TRI BULLE ==> à faire ******/
+/****** TRI BULLE ==> ï¿½ faire ******/
 
 void VecteurTrie::triBulles(int & cptEcrit, int & cptComp)
 {
-    /// à vous
-    cout << "... tri bulles en construction ... " << endl;
+    /// ï¿½ vous
+    size_t lastIndex = _v.size() - 2; 
+    while (lastIndex != 1) {
+        for (size_t i = 0; i < lastIndex; ++i) {
+            _v[i]   = std::min(_v[i], _v[i+1]);
+            _v[i+1] = std::max(_v[i], _v[i+1]);
+            cptEcrit += 2;
+            cptComp += 2;
+        }
+        --lastIndex;
+    }
 }
 
-/****** TRI BULLE OPTIMISE ==> à faire ******/
+/****** TRI BULLE OPTIMISE ==> ï¿½ faire ******/
 
 void VecteurTrie::triBullesOpt(int & cptEcrit, int & cptComp)
 {
-    /// à vous
-    cout << "... tri bulles optimise en construction ... " << endl;
+    /// ï¿½ vous
+    int i, fin = _v.size(), finTemp;
+    while (fin > 1) {
+        finTemp = 1;
+        for (size_t i = 1; i < fin-1; ++i) {
+            if (_v[i-1] > _v[i]) {
+                int temp = _v[i-1];
+                _v[i-1] = _v[i];
+                _v[i] = temp;
+                finTemp = i;
+            }
+        }
+        fin = finTemp;
+    }
 }
