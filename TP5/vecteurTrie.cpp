@@ -202,15 +202,20 @@ void VecteurTrie::triBullesOpt(int & cptEcrit, int & cptComp)
     /// � vous
     int i, fin = _v.size(), finTemp;
     while (fin > 1) {
+        ++cptComp;
         finTemp = 1;
         for (size_t i = 1; i < fin-1; ++i) {
             if (_v[i-1] > _v[i]) {
                 int temp = _v[i-1];
                 _v[i-1] = _v[i];
+                ++cptEcrit;
                 _v[i] = temp;
+                ++cptEcrit;
                 finTemp = i;
             }
+            ++cptComp;
         }
         fin = finTemp;
     }
+    ++cptComp;
 }
