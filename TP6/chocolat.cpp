@@ -29,7 +29,6 @@ Chocolat::Chocolat(const string nature, const int poids) {
 }
 
 Chocolat::Chocolat(const int poids) {
-	srand(time(0));
 	_poids = poids;
 	_nature = rand() % MAX_NATURE;
 }

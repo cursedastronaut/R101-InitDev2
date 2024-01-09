@@ -3,6 +3,7 @@ void testAuto(uint8_t partie);
 
 int main(int argc, char* argv[]) {
 	using std::cout, std::endl;
+	srand(time(0));
 
 	//Partie 1
 	testAuto(0);
